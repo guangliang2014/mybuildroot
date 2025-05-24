@@ -1,0 +1,2 @@
+source "$BR2_EXTERNAL_MY_PATH/package/m4projects/Config.in"
+source "$BR2_EXTERNAL_MY_PATH/package/eth-switch/Config.in"
