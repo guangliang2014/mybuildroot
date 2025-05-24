@@ -1,0 +1,12 @@
+[submodule "buildroot"]
+	path = buildroot
+	url = https://github.com/guangliang2014/cbuildroot.git
+[submodule "linux"]
+	path = linux
+	url = https://github.com/guangliang2014/clinux.git
+[submodule "qemu"]
+	path = qemu
+	url = https://github.com/guangliang2014/cqemu.git
+[submodule "busybox"]
+	path = busybox
+	url = https://github.com/guangliang2014/cbusybox.git

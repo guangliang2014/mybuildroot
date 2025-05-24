@@ -1,9 +1,13 @@
 2025-5-23
 
-##Setup##
+# Setup
 
-1, git submodule add https://github.com/bootlin/buildroot.git
-Success
+1, git submodule add https://github.com/guangliang2014/cbuildroot.git buildroot
+   git submodule add https://github.com/guangliang2014/clinux.git linux
+   git submodule add https://github.com/guangliang2014/cqemu.git qemu
+   git submodule add https://github.com/guangliang2014/cbusybox.git busybox
+   
+   Success
 
 2, BR2_EXTERNAL, only an environment variable, Automatically saved in the hidden .br2-external.mk file
 in the output directory
@@ -39,7 +43,9 @@ Success
    !!! mybuildroot/output/images/start-qemu.sh 无法生产，原因是在package/post-images.sh会去找支持该配置的readme.txt，新扩展的配置是没有对应的readme.txt的。
    # 指定了新的扩展post-image.sh在extern/board/目录下面
    # 新qemu需要打开BR2_PACKAGE_QEMU_SLIRP  target/misc/qemu/BR2_PACKAGE_QEMU_SLIRP
+   # externl readme.txt for qemu
 
+   # fix all cxxx repos base is clean to backup list
 
 6, add cbusybox
    1， source code
