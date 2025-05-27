@@ -2,6 +2,9 @@
 
 # Setup
 
+refs:
+1.https://github.com/bootlin/buildroot-external-st.git
+
 ## 1, git submodule
 
    git submodule add https://github.com/guangliang2014/cbuildroot.git buildroot
@@ -60,7 +63,91 @@ in the output directory.
 
    make O=../../output-ext -C buildroot/buildroot-2025.02  all
 
-## 3, Customize Linux & Qemu(TODO)
+   The qemu & linux source must be using the right version!!
+
+## 3, init system
+
+   Using Busybox(default)
+      Notice:
+      The BusyBox init program will read the /etc/inittab file at boot to know what to do. 
+      The syntax of this file can be found in http://git.busybox.net/busybox/tree/examples/inittab (note that BusyBox 
+      inittab syntax is special: do not use a random inittab documentation from the Internet to learn about BusyBox inittab). 
+      The default inittab in Buildroot is stored in package/busybox/inittab. Apart from mounting a few important filesystems, 
+      the main job the default inittab does is to start the /etc/init.d/rcS shell script, and start a getty program
+       (which provides a login prompt).
+
+## 4, /dev system
+  
+   Using udev(default is "devtmpfs only") + devtmpfs 
+   
+   kernel open CONFIG_UEVENT_HELPER for /proc/sys/kernel/hotplug
+
+  
+
+
+## 5, Customize Linux & Qemu
+
+
+### 5.1 Linux Config
+
+   1) linux-menuconfig and linux-savedefconfig only work when linux is enabled
+   2) linux-savedefconfig  .config -->defconfig
+   3) cp output-ext/build/linux-custom/defconfig external/board/ext_board/linux.config
+
+
+
+## 6, Initrd & initramfs
+
+   6.1 Initrd = Init ram disk 
+      bootloader会把initrd文件读到内存中，然后把initrd文件在内存中的起始地址和大小传递给内核
+      //linuxrc -->    cpio /init; image /initrc
+      //mem=32M console=ttySAC0 root=/dev/ram initrd=0xc1000000,0x00600000 ramdisk_size=8192 rw
+
+   6.2 initramfs
+      cpio格式的文件被打包到kernel文件中
+      __initramfs_start和__initramfs_end
+
+   6.3 (default)noinitrd方式:
+      Kernel
+      [N]Initial RAM filesystem and RAM disk (initramfs/initrd) support
+      bzImage（binwalk not found initramfs)
+         DECIMAL       HEXADECIMAL     DESCRIPTION
+         --------------------------------------------------------------------------------
+         17092         0x42C4          gzip compressed data, maximum compression, from Unix, last modified: 1970-01-01 00:00:00 (null date)
+      command line: rootwait root=/dev/vda
+
+      /linuxrc --> busybox ( /etc/inittab )  or systemd
+
+
+## 7, Can work nvme disk
+
+   DISK_ARGS="-drive file=nvme.img,if=none,id=D22 -device nvme,drive=D22,serial=1234"
+   nvme list
+   Node             SN                   Model                                    Namespace Usage                      Format           FW Rev  
+   ---------------- -------------------- ---------------------------------------- --------- -------------------------- ---------------- --------
+   /dev/nvme0n1     1234                 QEMU NVMe Ctrl                           1           4.29  GB /   4.29  GB    512   B +  0 B   9.2.0   
+
+   Linux Trace
+   
+   Qemu Trace
+
+## 8, Tools
+
+   8.1 busybox lspci --> pciutils
+   
+
+## , add VFIO support
+
+   .1 Kernel
+
+   .2 host
+
+## , Debug Qemu
+
+## , Debug Linux
+
+## , Debug APP
+
 
 
 
