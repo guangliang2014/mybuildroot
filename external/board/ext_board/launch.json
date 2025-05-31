@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug QEMU with GDB",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/home/code/buildroot/mybuildroot/output-ext/host/bin/qemu-system-x86_64",
+            "args": [
+                "-M", "pc",
+                "-kernel", "bzImage",
+                "-drive", "file=rootfs.ext2,if=virtio,format=raw",
+                "-append", "rootwait root=/dev/vda console=tty1 console=ttyS0",
+                "-net", "nic,model=virtio",
+                "-net", "user",
+                "-device", "vfio-pci,host=0000:01:00.0,id=hostdev0"
+            ],
+            "stopAtEntry": true,
+            "cwd": "/home/code/buildroot/mybuildroot/output-ext/images",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "/home/code/buildroot/mybuildroot/output-ext/host/bin:${env:PATH}"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb", // 或你的 gdb 路径
+            "setupCommands": [
+                { "description": "Enable pretty-printing", "text": "-enable-pretty-printing", "ignoreFailures": true }
+            ]
+        }
+    ]
+}

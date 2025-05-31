@@ -145,9 +145,25 @@ in the output directory.
     01:00.0 0108: 2646:5027 (rev 01) (prog-if 02 [NVM Express])  
     echo 0000:01:00.0 > /sys/bus/pci/drivers/nvme/unbind  
     echo 2646 5027 > /sys/bus/pci/drivers/vfio-pci/new_id  
+    vfio_bind.sh
 
    9.2 guest
-     -device vfio-pci,host=0000:01:00.0,id=hostdev0  
+     -device vfio-pci,host=0000:01:00.0,id=hostdev0   
+   file your_binary 查看文件是否带debug信息、是否strip？  strip、debug信息、-og？？  
+   exec sudo env PATH="/home/code/buildroot/mybuildroot/output-ext/host/bin:${PATH}"  gdb --args qemu-system-x86_64 -M pc  
+   
+   VSCode  
+   1) launch.json  
+   2) vfio 设备权限问题解决  
+     sudo usermod -aG vfio $USER  
+     sudo chown root:vfio /dev/vfio/*  
+     sudo chmod 660 /dev/vfio/*  
+   
+     临时修改权限：sudo chmod 666 /dev/vfio/*  
+
+
+   9.3 Qemu trace is very useful for debugging
+
 
 
 ## , Debug Qemu
