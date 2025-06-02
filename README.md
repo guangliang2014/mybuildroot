@@ -129,14 +129,8 @@ in the output directory.
    Linux Trace
 
 
-   Qemu Trace
-
-
-
-
-## 8, Tools
-
-   8.1 busybox lspci --> pciutils
+## 8, Tools  
+   8.1 busybox lspci --> pciutils  
    
 
 ## 9, add VFIO support
@@ -145,13 +139,16 @@ in the output directory.
     01:00.0 0108: 2646:5027 (rev 01) (prog-if 02 [NVM Express])  
     echo 0000:01:00.0 > /sys/bus/pci/drivers/nvme/unbind  
     echo 2646 5027 > /sys/bus/pci/drivers/vfio-pci/new_id  
-    vfio_bind.sh
+    vfio_bind.sh  
+
+              
 
    9.2 guest
      -device vfio-pci,host=0000:01:00.0,id=hostdev0   
    file your_binary 查看文件是否带debug信息、是否strip？  strip、debug信息、-og？？  
    exec sudo env PATH="/home/code/buildroot/mybuildroot/output-ext/host/bin:${PATH}"  gdb --args qemu-system-x86_64 -M pc  
-   
+   exec sudo env PATH="/home/code/buildroot/mybuildroot/output-ext/host/bin:${PATH}"  gdb --args qemu-system-x86_64 -M pc -kernel bzImage -drive file=rootfs.ext2,if=virtio,format=raw -append "rootwait root=/dev/vda console=tty1 console=ttyS0"  -net nic,model=virtio -net user  -device vfio-pci,host=0000:01:00.0,id=hostdev0  ${EXTRA_ARGS} "$@"  
+
    VSCode  
    1) launch.json  
    2) vfio 设备权限问题解决  
@@ -163,15 +160,10 @@ in the output directory.
 
 
    9.3 Qemu trace is very useful for debugging
+    -d test,trace:*vfio*,trace:*pci* \  open test, and trace   
+    -D qemu_test-%d.log \  save the trace log to file   
 
-
-
-## , Debug Qemu
-
-## , Debug Linux
-
-## , Debug APP
-
+Over.
 
 
 
