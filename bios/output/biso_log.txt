@@ -1,0 +1,980 @@
+SeaBIOS (version rel-1.16.3-0-ga6ed6b7-20250616_222816-code-MS-7E44)
+BUILD: gcc: (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0 binutils: (GNU Binutils for Ubuntu) 2.42
+No Xen hypervisor found.
+enabling shadow ram
+Running on QEMU (i440fx)
+physbits: signature="AuthenticAMD", pae=yes, lm=yes, phys-bits=40, valid=yes
+cpuid 0x40000000: eax 40000001, signature 'TCGTCGTCGTCG'
+Found QEMU fw_cfg
+QEMU fw_cfg DMA interface supported
+Add to e820 map: fd00000000 300000000 2
+qemu/e820: addr 0x000000fd00000000 len 0x0000000300000000 [reserved]
+Add to e820 map: 00000000 08000000 1
+qemu/e820: addr 0x0000000000000000 len 0x0000000008000000 [RAM]
+qemu/e820: RamSize: 0x08000000
+qemu/e820: RamSizeOver4G: 0x0000000000000000
+Add to e820 map: fffc0000 00040000 2
+malloc preinit
+Add to e820 map: 000a0000 00050000 -1
+Add to e820 map: 000f0000 00010000 2
+Add to e820 map: 07000000 01000000 2
+phys_alloc zone=0x000e5e78 size=89216 align=20 ret=6fea2e0 (detail=0x06fea2b0)
+Relocating init from 0x000d0300 to 0x06fea2e0 (size 89216)
+malloc init
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fea1b0 (detail=0x06fea180)
+Add romfile: etc/show-boot-menu (size=2)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fea0e0 (detail=0x06fea0b0)
+Add romfile: etc/irq0-override (size=1)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fea010 (detail=0x06fe9fe0)
+Add romfile: etc/max-cpus (size=2)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe9f40 (detail=0x06fe9f10)
+Add romfile: etc/numa-cpu-map (size=8)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe9e70 (detail=0x06fe9e40)
+Add romfile: etc/numa-nodes (size=0)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe9da0 (detail=0x06fe9d70)
+Add romfile: bios-geometry (size=0)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe9cd0 (detail=0x06fe9ca0)
+Add romfile: bootorder (size=0)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe9c00 (detail=0x06fe9bd0)
+Add romfile: etc/acpi/rsdp (size=20)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe9b30 (detail=0x06fe9b00)
+Add romfile: etc/acpi/tables (size=131072)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe9a60 (detail=0x06fe9a30)
+Add romfile: etc/boot-fail-wait (size=4)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe9990 (detail=0x06fe9960)
+Add romfile: etc/e820 (size=40)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe98c0 (detail=0x06fe9890)
+Add romfile: etc/smbios/smbios-anchor (size=31)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe97f0 (detail=0x06fe97c0)
+Add romfile: etc/smbios/smbios-tables (size=321)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe9720 (detail=0x06fe96f0)
+Add romfile: etc/system-states (size=6)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe9650 (detail=0x06fe9620)
+Add romfile: etc/table-loader (size=4096)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe9580 (detail=0x06fe9550)
+Add romfile: etc/tpm/log (size=0)
+phys_alloc zone=0x06fffe58 size=148 align=10 ret=6fe94b0 (detail=0x06fe9480)
+Add romfile: genroms/kvmvapic.bin (size=9216)
+Moving pm_base to 0x600
+init ivt
+init bda
+Add to e820 map: 0009fc00 00000400 2
+init bios32
+init PMM
+init PNPBIOS table
+init keyboard
+init mouse
+init pic
+math cp init
+pci setup
+=== PCI bus & bridge init ===
+PCI: pci_bios_init_bus_rec bus = 0x0
+PCI: pci_bios_init_bus_rec bus = 0x0, config bdf not bridge:0x0
+PCI: pci_bios_init_bus_rec bus = 0x0, config bdf not bridge:0x8
+PCI: pci_bios_init_bus_rec bus = 0x0, config bdf not bridge:0x9
+PCI: pci_bios_init_bus_rec bus = 0x0, config bdf not bridge:0xb
+PCI: pci_bios_init_bus_rec bus = 0x0, config bdf not bridge:0x10
+PCI: pci_bios_init_bus_rec bus = 0x0, config bdf not bridge:0x18
+PCI: pci_bios_init_bus_rec bus = 0x0, class is not bridge
+PCI: pci_bios_init_bus_rec bus = 0x0, class is not bridge
+PCI: pci_bios_init_bus_rec bus = 0x0, class is not bridge
+PCI: pci_bios_init_bus_rec bus = 0x0, class is not bridge
+PCI: pci_bios_init_bus_rec bus = 0x0, class is not bridge
+PCI: pci_bios_init_bus_rec bus = 0x0, class is not bridge
+=== PCI device probing ===
+PCI probe
+phys_alloc zone=0x06fffe58 size=32 align=10 ret=6fe9460 (detail=0x06fe9430)
+PCI device 00:00.0 (vd=8086:1237 c=0600)
+phys_alloc zone=0x06fffe58 size=32 align=10 ret=6fe9410 (detail=0x06fe93e0)
+PCI device 00:01.0 (vd=8086:7000 c=0601)
+phys_alloc zone=0x06fffe58 size=32 align=10 ret=6fe93c0 (detail=0x06fe9390)
+PCI device 00:01.1 (vd=8086:7010 c=0101)
+phys_alloc zone=0x06fffe58 size=32 align=10 ret=6fe9370 (detail=0x06fe9340)
+PCI device 00:01.3 (vd=8086:7113 c=0680)
+phys_alloc zone=0x06fffe58 size=32 align=10 ret=6fe9320 (detail=0x06fe92f0)
+PCI device 00:02.0 (vd=1234:1111 c=0300)
+phys_alloc zone=0x06fffe58 size=32 align=10 ret=6fe92d0 (detail=0x06fe92a0)
+PCI device 00:03.0 (vd=8086:100e c=0200)
+Found 6 PCI devices (max PCI bus is 00)
+PCI: pci_init_device init pci_platform_tbl for 00:00.0
+PCI: call func pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600
+PCI: i440fx_mem_addr_setup called for 00:00.0
+PCI: pcimem_start = 0x80000000
+PCI: pci_init_device init pci_platform_tbl for 00:01.0
+PCI: pci_init_device bdf=0x06fe9410 id=8086:7000 class=0601 not match
+PCI: pci_init_device bdf=0x06fe9410 id=8086:7000 class=0601 not match
+PCI: pci_init_device init pci_platform_tbl for 00:01.1
+PCI: pci_init_device bdf=0x06fe93c0 id=8086:7010 class=0101 not match
+PCI: pci_init_device bdf=0x06fe93c0 id=8086:7010 class=0101 not match
+PCI: pci_init_device init pci_platform_tbl for 00:01.3
+PCI: pci_init_device bdf=0x06fe9370 id=8086:7113 class=0680 not match
+PCI: pci_init_device bdf=0x06fe9370 id=8086:7113 class=0680 not match
+PCI: pci_init_device init pci_platform_tbl for 00:02.0
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device init pci_platform_tbl for 00:03.0
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+=== PCI new allocation pass #1 ===
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe9270 (detail=0x06fe9240)
+PCI: check devices
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe9210 (detail=0x06fe91e0)
+PCI: create region entry: dev=00:01.1 bar=4 size=0x10 align=0x10 type=io is64=0
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe91b0 (detail=0x06fe9180)
+PCI: create region entry: dev=00:02.0 bar=0 size=0x1000000 align=0x1000000 type=prefmem is64=0
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe9150 (detail=0x06fe9120)
+PCI: create region entry: dev=00:02.0 bar=2 size=0x1000 align=0x1000 type=mem is64=0
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe90f0 (detail=0x06fe90c0)
+PCI: create region entry: dev=00:02.0 bar=6 size=0x10000 align=0x10000 type=mem is64=0
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe9090 (detail=0x06fe9060)
+PCI: create region entry: dev=00:03.0 bar=0 size=0x20000 align=0x20000 type=mem is64=0
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe9030 (detail=0x06fe9000)
+PCI: create region entry: dev=00:03.0 bar=1 size=0x40 align=0x40 type=io is64=0
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8fd0 (detail=0x06fe8fa0)
+PCI: create region entry: dev=00:03.0 bar=6 size=0x40000 align=0x40000 type=mem is64=0
+=== PCI new allocation pass #2 ===
+PCI: IO: c000 - c04f
+PCI: 32: 0000000080000000 - 00000000fec00000
+PCI: map device bdf=00:03.0  bar 1, addr 0000c000, size 00000040 [io]
+phys_free 6fe9030 (detail=0x06fe9000)
+PCI: map device bdf=00:01.1  bar 4, addr 0000c040, size 00000010 [io]
+phys_free 6fe9210 (detail=0x06fe91e0)
+PCI: map device bdf=00:03.0  bar 6, addr feb80000, size 00040000 [mem]
+phys_free 6fe8fd0 (detail=0x06fe8fa0)
+PCI: map device bdf=00:03.0  bar 0, addr febc0000, size 00020000 [mem]
+phys_free 6fe9090 (detail=0x06fe9060)
+PCI: map device bdf=00:02.0  bar 6, addr febe0000, size 00010000 [mem]
+phys_free 6fe90f0 (detail=0x06fe90c0)
+PCI: map device bdf=00:02.0  bar 2, addr febf0000, size 00001000 [mem]
+phys_free 6fe9150 (detail=0x06fe9120)
+PCI: map device bdf=00:02.0  bar 0, addr fd000000, size 01000000 [prefmem]
+phys_free 6fe91b0 (detail=0x06fe9180)
+=== PCI pci_bios_init_devices pass #3 ===
+PCI: init bdf=00:00.0 id=8086:1237
+PCI: pci_init_device init pci_device_tbl for 00:00.0
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: init bdf=00:01.0 id=8086:7000
+PCI: pci_init_device init pci_device_tbl for 00:01.0
+PCI: call func pci_init_device bdf=0x06fe9410 id=8086:7000 class=0601
+PIIX3/PIIX4 init: elcr=00 0c
+PCI: init bdf=00:01.1 id=8086:7010
+PCI: pci_init_device init pci_device_tbl for 00:01.1
+PCI: pci_init_device bdf=0x06fe93c0 id=8086:7010 class=0101 not match
+PCI: pci_init_device bdf=0x06fe93c0 id=8086:7010 class=0101 not match
+PCI: pci_init_device bdf=0x06fe93c0 id=8086:7010 class=0101 not match
+PCI: call func pci_init_device bdf=0x06fe93c0 id=8086:7010 class=0101
+PCI: init bdf=00:01.3 id=8086:7113
+PCI: pci_init_device init pci_device_tbl for 00:01.3
+PCI: pci_init_device bdf=0x06fe9370 id=8086:7113 class=0680 not match
+PCI: pci_init_device bdf=0x06fe9370 id=8086:7113 class=0680 not match
+PCI: pci_init_device bdf=0x06fe9370 id=8086:7113 class=0680 not match
+PCI: pci_init_device bdf=0x06fe9370 id=8086:7113 class=0680 not match
+PCI: pci_init_device bdf=0x06fe9370 id=8086:7113 class=0680 not match
+PCI: pci_init_device bdf=0x06fe9370 id=8086:7113 class=0680 not match
+PCI: pci_init_device bdf=0x06fe9370 id=8086:7113 class=0680 not match
+PCI: pci_init_device bdf=0x06fe9370 id=8086:7113 class=0680 not match
+PCI: call func pci_init_device bdf=0x06fe9370 id=8086:7113 class=0680
+Using pmtimer, ioport 0x608
+PCI: init bdf=00:02.0 id=1234:1111
+PCI: pci_init_device init pci_device_tbl for 00:02.0
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: init bdf=00:03.0 id=8086:100e
+PCI: pci_init_device init pci_device_tbl for 00:03.0
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+=== PCI to do free busses ===
+phys_free 6fe9270 (detail=0x06fe9240)
+=== PCI done free busses ===
+PCI: Using 00:02.0 for primary VGA
+init smm
+init mtrr
+Found 1 cpu(s) max supported 1 cpu(s)
+init PIR table
+phys_alloc zone=0x06fffe60 size=128 align=10 ret=f4400 (detail=0x06fe9270)
+Copying PIR from 0x06fffc20 to 0x000f4400
+init MPTable
+phys_alloc zone=0x06fffe58 size=32768 align=10 ret=6fe1270 (detail=0x06fe1240)
+phys_alloc zone=0x06fffe60 size=224 align=10 ret=f4320 (detail=0x06fe1210)
+Copying MPTABLE from 0x00006d80/6fe1270 to 0x000f4320
+phys_free 6fe1270 (detail=0x06fe1240)
+phys_alloc zone=0x06fffe58 size=321 align=10 ret=6fe9120 (detail=0x06fe90f0)
+phys_alloc zone=0x06fffe60 size=416 align=10 ret=f4180 (detail=0x06fe90c0)
+phys_free 6fe9120 (detail=0x06fe90f0)
+phys_alloc zone=0x06fffe60 size=31 align=10 ret=f4160 (detail=0x06fe9240)
+Copying SMBIOS from 0x00006d80 to 0x000f4160
+load ACPI tables
+phys_alloc zone=0x06fffe58 size=4097 align=10 ret=6fe80b0 (detail=0x06fe9210)
+Copying romfile 'etc/table-loader' (len 4096)
+phys_alloc zone=0x06fffe58 size=260 align=10 ret=6fe9100 (detail=0x06fe8080)
+phys_alloc zone=0x06fffe60 size=20 align=10 ret=f4140 (detail=0x06fe8050)
+phys_alloc zone=0x06fffe64 size=131072 align=40 ret=7fe0000 (detail=0x06fe8020)
+phys_free 6fe9100 (detail=0x06fe8080)
+phys_free 6fe80b0 (detail=0x06fe9210)
+rsdp=0x000f4140
+rsdt=0x07fe22e0
+xsdt=0x00000000
+table(50434146)=0x07fe2194 (via rsdt)
+ACPI: parse DSDT at 0x07fe0040 (len 8532)
+parse_namestring: 1 scope '\'
+parse_namestring: 2 op region 'DBG'
+parse_termarg_int: 0x402
+parse_termarg_int: 0x1
+parse_namestring: 2 op 5b81 'DBG'
+parse_namestring: 2 op 14 'DBUG'
+parse_namestring: 1 scope '_SB'
+parse_namestring: 2 device 'PCI0'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe9210 (detail=0x06fe91e0)
+parse_namestring: 3 name '_HID'
+parse_namestring: 3 name '_UID'
+parse_namestring: 3 op 14 'EDSM'
+parse_namestring: 1 scope '_SB.PCI0'
+parse_namestring: 2 op region 'PCST'
+parse_termarg_int: 0xae00
+parse_termarg_int: 0x8
+parse_namestring: 2 op 5b81 'PCST'
+parse_namestring: 2 op region 'SEJ'
+parse_termarg_int: 0xae08
+parse_termarg_int: 0x4
+parse_namestring: 2 op 5b81 'SEJ'
+parse_namestring: 2 op region 'BNMR'
+parse_termarg_int: 0xae10
+parse_termarg_int: 0x8
+parse_namestring: 2 op 5b81 'BNMR'
+parse_namestring: 2 mutex 'BLCK'
+parse_namestring: 2 op 14 'PCEJ'
+parse_namestring: 2 op 14 'AIDX'
+parse_namestring: 2 op 14 'PDSM'
+parse_namestring: 1 scope '_SB'
+parse_namestring: 2 scope 'PCI0'
+parse_namestring: 3 op 14 '_PRT'
+parse_namestring: 2 op 14 'IQST'
+parse_namestring: 2 op 14 'IQCR'
+parse_namestring: 2 device 'LNKA'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe91b0 (detail=0x06fe9180)
+parse_namestring: 3 name '_HID'
+parse_namestring: 3 name '_UID'
+parse_namestring: 3 name '_PRS'
+parse_termarg_int: 0x13
+parse_namestring: 3 op 14 '_STA'
+parse_namestring: 3 op 14 '_DIS'
+parse_namestring: 3 op 14 '_CRS'
+parse_namestring: 3 op 14 '_SRS'
+parse_namestring: 2 device 'LNKB'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe9150 (detail=0x06fe9120)
+parse_namestring: 3 name '_HID'
+parse_namestring: 3 name '_UID'
+parse_namestring: 3 name '_PRS'
+parse_termarg_int: 0x13
+parse_namestring: 3 op 14 '_STA'
+parse_namestring: 3 op 14 '_DIS'
+parse_namestring: 3 op 14 '_CRS'
+parse_namestring: 3 op 14 '_SRS'
+parse_namestring: 2 device 'LNKC'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe90f0 (detail=0x06fe9090)
+parse_namestring: 3 name '_HID'
+parse_namestring: 3 name '_UID'
+parse_namestring: 3 name '_PRS'
+parse_termarg_int: 0x13
+parse_namestring: 3 op 14 '_STA'
+parse_namestring: 3 op 14 '_DIS'
+parse_namestring: 3 op 14 '_CRS'
+parse_namestring: 3 op 14 '_SRS'
+parse_namestring: 2 device 'LNKD'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe9060 (detail=0x06fe9030)
+parse_namestring: 3 name '_HID'
+parse_namestring: 3 name '_UID'
+parse_namestring: 3 name '_PRS'
+parse_termarg_int: 0x13
+parse_namestring: 3 op 14 '_STA'
+parse_namestring: 3 op 14 '_DIS'
+parse_namestring: 3 op 14 '_CRS'
+parse_namestring: 3 op 14 '_SRS'
+parse_namestring: 2 device 'LNKS'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe9000 (detail=0x06fe8fd0)
+parse_namestring: 3 name '_HID'
+parse_namestring: 3 name '_UID'
+parse_namestring: 3 name '_PRS'
+parse_termarg_int: 0xb
+parse_namestring: 3 op 14 '_STA'
+parse_namestring: 3 op 14 '_DIS'
+parse_namestring: 3 op 14 '_CRS'
+parse_namestring: 3 op 14 '_SRS'
+parse_namestring: 1 scope '_SB'
+parse_namestring: 2 device 'HPET'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8fa0 (detail=0x06fe8f70)
+parse_namestring: 3 name '_HID'
+parse_namestring: 3 name '_UID'
+parse_namestring: 3 op region 'HPTM'
+parse_termarg_int: 0xfed00000
+parse_termarg_int: 0x400
+parse_namestring: 3 op 5b81 'HPTM'
+parse_namestring: 3 op 14 '_STA'
+parse_namestring: 3 name '_CRS'
+parse_termarg_int: 0xe
+parse_namestring: 1 scope '_GPE'
+parse_namestring: 2 name '_HID'
+parse_namestring: 1 scope '_SB'
+parse_namestring: 2 device '\_SB.PCI0.PRES'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8f40 (detail=0x06fe8f10)
+parse_namestring: 3 name '_HID'
+parse_namestring: 3 name '_UID'
+parse_namestring: 3 mutex 'CPLK'
+parse_namestring: 3 name '_CRS'
+parse_termarg_int: 0xa
+parse_namestring: 3 op region 'PRST'
+parse_termarg_int: 0xaf00
+parse_termarg_int: 0xc
+parse_namestring: 3 op 5b81 'PRST'
+parse_namestring: 3 op 5b81 'PRST'
+parse_namestring: 3 op 14 '_INI'
+parse_namestring: 2 device '\_SB.CPUS'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8ee0 (detail=0x06fe8eb0)
+parse_namestring: 3 name '_HID'
+parse_namestring: 3 name '_CID'
+parse_namestring: 3 op 14 'CTFY'
+parse_namestring: 3 op 14 'CSTA'
+parse_namestring: 3 op 14 'CEJ0'
+parse_namestring: 3 op 14 'CSCN'
+parse_namestring: 3 op 14 'COST'
+parse_namestring: 3 op 5b83 'C000'
+parse_namestring: 1 op 14 '\_GPE._E02'
+parse_namestring: 1 scope '\_SB.PCI0'
+parse_namestring: 2 name '_CRS'
+parse_termarg_int: 0x9c
+parse_namestring: 2 device 'GPE0'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8e80 (detail=0x06fe8e50)
+parse_namestring: 3 name '_HID'
+parse_namestring: 3 name '_UID'
+parse_namestring: 3 name '_STA'
+parse_namestring: 3 name '_CRS'
+parse_termarg_int: 0xa
+parse_namestring: 2 device 'PHPR'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8e20 (detail=0x06fe8df0)
+parse_namestring: 3 name '_HID'
+parse_namestring: 3 name '_UID'
+parse_namestring: 3 name '_STA'
+parse_namestring: 3 name '_CRS'
+parse_termarg_int: 0xa
+parse_namestring: 1 scope '\'
+parse_namestring: 2 name '_S3'
+parse_pkg_skip: op 12 (6)
+parse_namestring: 2 name '_S4'
+parse_pkg_skip: op 12 (8)
+parse_namestring: 2 name '_S5'
+parse_pkg_skip: op 12 (6)
+parse_namestring: 1 scope '\_SB.PCI0'
+parse_namestring: 2 device 'FWCF'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8dc0 (detail=0x06fe8d90)
+parse_namestring: 3 name '_HID'
+parse_namestring: 3 name '_STA'
+parse_namestring: 3 name '_CRS'
+parse_termarg_int: 0xa
+parse_namestring: 1 scope '\\SB'
+parse_namestring: 2 scope 'PCI0'
+parse_namestring: 3 device 'S00'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8d60 (detail=0x06fe8d30)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 3 device 'S08'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8d00 (detail=0x06fe8cd0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 op region 'P40C'
+parse_termarg_int: 0x60
+parse_termarg_int: 0x4
+parse_namestring: 4 scope '\\SB'
+parse_namestring: 5 op 5b81 'PCI0.S08.P40C'
+parse_namestring: 4 device 'KBD'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8ca0 (detail=0x06fe8c70)
+parse_namestring: 5 name '_HID'
+parse_namestring: 5 name '_STA'
+parse_namestring: 5 name '_CRS'
+parse_termarg_int: 0x15
+parse_namestring: 4 device 'MOU'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8c40 (detail=0x06fe8c10)
+parse_namestring: 5 name '_HID'
+parse_namestring: 5 name '_STA'
+parse_namestring: 5 name '_CRS'
+parse_termarg_int: 0x5
+parse_namestring: 4 device 'FDC0'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8be0 (detail=0x06fe8bb0)
+parse_namestring: 5 name '_HID'
+parse_namestring: 5 name '_CRS'
+parse_termarg_int: 0x18
+parse_namestring: 5 device 'FLPA'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8b80 (detail=0x06fe8b50)
+parse_namestring: 6 name '_ADR'
+parse_namestring: 6 name '_FDI'
+parse_pkg_skip: op 12 (32)
+parse_namestring: 5 name '_FDE'
+parse_termarg_int: 0x14
+parse_namestring: 4 device 'LPT1'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8b20 (detail=0x06fe8af0)
+parse_namestring: 5 name '_HID'
+parse_namestring: 5 name '_UID'
+parse_namestring: 5 name '_STA'
+parse_namestring: 5 name '_CRS'
+parse_termarg_int: 0xd
+parse_namestring: 4 device 'COM1'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8ac0 (detail=0x06fe8a90)
+parse_namestring: 5 name '_HID'
+parse_namestring: 5 name '_UID'
+parse_namestring: 5 name '_STA'
+parse_namestring: 5 name '_CRS'
+parse_termarg_int: 0xd
+parse_namestring: 4 device 'RTC'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8a60 (detail=0x06fe8a30)
+parse_namestring: 5 name '_HID'
+parse_namestring: 5 name '_CRS'
+parse_termarg_int: 0xd
+parse_namestring: 3 device 'S09'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8a00 (detail=0x06fe89d0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 3 device 'S0B'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe89a0 (detail=0x06fe8970)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 3 device 'S10'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8940 (detail=0x06fe8910)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 op 14 '_S1D'
+parse_namestring: 4 op 14 '_S2D'
+parse_namestring: 4 op 14 '_S3D'
+parse_namestring: 3 device 'S18'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe88e0 (detail=0x06fe88b0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 3 name 'BSEL'
+parse_namestring: 3 scope 'S18'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S20'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8880 (detail=0x06fe8850)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S28'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8820 (detail=0x06fe87f0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S30'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe87c0 (detail=0x06fe8790)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S38'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8760 (detail=0x06fe8730)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S40'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8700 (detail=0x06fe86d0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S48'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe86a0 (detail=0x06fe8670)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S50'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8640 (detail=0x06fe8610)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S58'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe85e0 (detail=0x06fe85b0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S60'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8580 (detail=0x06fe8550)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S68'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8520 (detail=0x06fe84f0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S70'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe84c0 (detail=0x06fe8490)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S78'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8460 (detail=0x06fe8430)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S80'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8400 (detail=0x06fe83d0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S88'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe83a0 (detail=0x06fe8370)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S90'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8340 (detail=0x06fe8310)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'S98'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe82e0 (detail=0x06fe82b0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'SA0'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8280 (detail=0x06fe8250)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'SA8'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8220 (detail=0x06fe81f0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'SB0'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe81c0 (detail=0x06fe8190)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'SB8'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8160 (detail=0x06fe8130)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'SC0'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe8100 (detail=0x06fe80d0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'SC8'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe80a0 (detail=0x06fe7ff0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'SD0'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe7fc0 (detail=0x06fe7f90)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'SD8'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe7f60 (detail=0x06fe7f30)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'SE0'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe7f00 (detail=0x06fe7ed0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'SE8'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe7ea0 (detail=0x06fe7e70)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'SF0'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe7e40 (detail=0x06fe7e10)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 device 'SF8'
+phys_alloc zone=0x06fffe58 size=40 align=10 ret=6fe7de0 (detail=0x06fe7db0)
+parse_namestring: 4 name '_ADR'
+parse_namestring: 4 name 'ASUN'
+parse_namestring: 4 op 14 '_DSM'
+parse_namestring: 4 name '_SUN'
+parse_namestring: 4 op 14 '_EJ0'
+parse_namestring: 3 op 14 'DVNT'
+parse_namestring: 1 scope '\_SB.PCI0'
+parse_namestring: 2 op 14 'PCNT'
+parse_namestring: 1 scope '_GPE'
+parse_namestring: 2 op 14 '_E01'
+init timer
+rsdp=0x000f4140
+rsdt=0x07fe22e0
+xsdt=0x00000000
+no table 324d5054 found
+rsdp=0x000f4140
+rsdt=0x07fe22e0
+xsdt=0x00000000
+no table 41504354 found
+Scan for VGA option rom
+Attempting to init PCI bdf 00:02.0 (vd 1234:1111)
+Attempting to map option rom on dev 00:02.0
+Option rom sizing returned febe0000 ffff0000
+Inspecting possible rom at 0xfebe0000 (vd=1234:1111 bdf=00:02.0)
+Copying option rom (size 39424) from 0xfebe0000 to 0x000c0000
+Checking rom 0x000c0000 (sig aa55 size 77)
+Running option rom at c000:0003
+Start SeaVGABIOS (version rel-1.16.3-0-ga6ed6b701f0a-prebuilt.qemu.org)
+VGABUILD: gcc: (GCC) 13.2.1 20230728 (Red Hat Cross 13.2.1-1) binutils: version 2.40-3.fc39
+enter vga_post:
+   a=00000010  b=0000ffff  c=00000000  d=0000ffff ds=0000 es=f000 ss=0000
+  si=00000000 di=00004f60 bp=00000000 sp=00006cd6 cs=f000 ip=c8ae  f=0000
+VBE DISPI: bdf 00:02.0, bar 0
+VBE DISPI: lfb_addr=fd000000, size 16 MB
+Removing mode 19a
+Removing mode 19b
+Removing mode 19c
+Removing mode 19d
+Removing mode 19e
+Attempting to allocate 512 bytes lowmem via pmm call to f000:c959
+pmm call arg1=0
+pmm00: length=20 handle=ffffffff flags=9
+phys_alloc zone=0x06fffe68 size=512 align=10 ret=e54c0 (detail=0x06fe7d80)
+VGA stack allocated at e54c0
+Turning on vga text mode console
+set VGA mode 3
+SeaBIOS (version rel-1.16.3-0-ga6ed6b7-20250616_222816-code-MS-7E44)
+init usb
+parse_termarg_int: 0xf
+init ps2port
+phys_alloc zone=0x06fffe58 size=4096 align=1000 ret=6fe6000 (detail=0x06fe7d50)
+/06fe6000\ Start thread
+|06fe6000| i8042_flush
+|06fe6000| i8042_command cmd=ad
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_command cmd=a7
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_flush
+|06fe6000| i8042_command cmd=1aa
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_read
+|06fe6000| i8042 param=55
+|06fe6000| i8042_command cmd=1ab
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_read
+|06fe6000| i8042 param=0
+|06fe6000| ps2_command aux=0 cmd=1ff
+|06fe6000| i8042 ctr old=30 new=30
+|06fe6000| i8042_command cmd=1060
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_write
+init floppy drives
+phys_alloc zone=0x06fffe60 size=44 align=10 ret=f4110 (detail=0x06fe7d20)
+phys_alloc zone=0x06fffe58 size=80 align=10 ret=6fe7cd0 (detail=0x06fe7ca0)
+Searching bootorder for: /pci@i0cf8/isa@1/fdc@03f0/floppy@0
+phys_alloc zone=0x06fffe58 size=24 align=10 ret=6fe8080 (detail=0x06fe7c70)
+Registering bootable: Floppy [drive A] (type:1 prio:102 data:f4110)
+init hard drives
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9460 id=8086:1237 class=0600 not match
+PCI: pci_init_device bdf=0x06fe9410 id=8086:7000 class=0601 not match
+PCI: pci_init_device bdf=0x06fe9410 id=8086:7000 class=0601 not match
+PCI: call func pci_init_device bdf=0x06fe93c0 id=8086:7010 class=0101
+phys_alloc zone=0x06fffe60 size=20 align=10 ret=f40f0 (detail=0x06fe7c40)
+ATA controller 1 at 1f0/3f4/0 (irq 14 dev 9)
+phys_alloc zone=0x06fffe58 size=4096 align=1000 ret=6fe5000 (detail=0x06fe7c10)
+/06fe5000\ Start thread
+|06fe5000| powerup iobase=1f0 st=0
+|06fe5000| powerup iobase=1f0 st=0
+|06fe5000| ata_detect ata0-0: sc=0 sn=0 dh=0
+|06fe5000| powerup iobase=1f0 st=0
+|06fe5000| powerup iobase=1f0 st=0
+|06fe5000| ata_detect ata0-1: sc=0 sn=0 dh=0
+\06fe5000/ End thread
+phys_free 6fe5000 (detail=0x06fe7c10)
+|06fe6000| i8042_command cmd=1060
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_write
+|06fe6000| ps2_sendbyte aux=0 cmd=ff
+|06fe6000| i8042_kbd_write c=255
+|06fe6000| i8042_wait_write
+|06fe6000| ps2 read fa
+|06fe6000| ps2 read aa
+|06fe6000| i8042_command cmd=1060
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_write
+|06fe6000| ps2_command aux=0 cmd=f5
+|06fe6000| i8042 ctr old=30 new=30
+|06fe6000| i8042_command cmd=1060
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_write
+phys_alloc zone=0x06fffe60 size=20 align=10 ret=f40d0 (detail=0x06fe7c10)
+ATA controller 2 at 170/374/0 (irq 15 dev 9)
+phys_alloc zone=0x06fffe58 size=4096 align=1000 ret=6fe5000 (detail=0x06fe7be0)
+/06fe5000\ Start thread
+|06fe5000| powerup iobase=170 st=50
+|06fe5000| powerup iobase=170 st=50
+|06fe5000| ata_detect ata1-0: sc=55 sn=aa dh=a0
+|06fe5000| ata_reset drive=0x06fe5db8
+|06fe6000| i8042_command cmd=1060
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_write
+|06fe6000| ps2_sendbyte aux=0 cmd=f5
+|06fe6000| i8042_kbd_write c=245
+|06fe6000| i8042_wait_write
+|06fe6000| ps2 read fa
+|06fe6000| i8042_command cmd=1060
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_write
+|06fe6000| ps2_command aux=0 cmd=10f0
+|06fe6000| i8042 ctr old=30 new=30
+|06fe6000| i8042_command cmd=1060
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_write
+PCI: pci_init_device bdf=0x06fe9370 id=8086:7113 class=0680 not match
+PCI: pci_init_device bdf=0x06fe9370 id=8086:7113 class=0680 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe9320 id=1234:1111 class=0300 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+PCI: pci_init_device bdf=0x06fe92d0 id=8086:100e class=0200 not match
+init ahci
+Searching bootorder for: HALT
+init virtio-blk
+init virtio-scsi
+init lsi53c895a
+init esp
+init megasas
+init pvscsi
+init MPT
+init nvme
+init lpt
+Found 1 lpt ports
+init serial
+Found 1 serial ports
+|06fe6000| i8042_command cmd=1060
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_write
+|06fe6000| ps2_sendbyte aux=0 cmd=f0
+|06fe6000| i8042_kbd_write c=240
+|06fe6000| i8042_wait_write
+|06fe6000| ps2 read fa
+|06fe6000| ps2_sendbyte aux=0 cmd=2
+|06fe6000| i8042_kbd_write c=2
+|06fe6000| i8042_wait_write
+|06fe6000| ps2 read fa
+|06fe6000| i8042_command cmd=1060
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_write
+|06fe6000| ps2_command aux=0 cmd=f4
+|06fe6000| i8042 ctr old=61 new=70
+|06fe6000| i8042_command cmd=1060
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_command cmd=1060
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_write
+|06fe6000| ps2_sendbyte aux=0 cmd=f4
+|06fe6000| i8042_kbd_write c=244
+|06fe6000| i8042_wait_write
+|06fe6000| ps2 read fa
+|06fe6000| i8042_command cmd=1060
+|06fe6000| i8042_wait_write
+|06fe6000| i8042_wait_write
+|06fe6000| PS2 keyboard initialized
+\06fe6000/ End thread
+phys_free 6fe6000 (detail=0x06fe7d50)
+|06fe5000| ata_reset exit status=0
+|06fe5000| phys_alloc zone=0x06fffe60 size=52 align=10 ret=f4090 (detail=0x06fe7d50)
+|06fe5000| phys_alloc zone=0x06fffe58 size=80 align=10 ret=6fe7b90 (detail=0x06fe7b60)
+|06fe5000| DVD/CD [ata1-0: QEMU DVD-ROM ATAPI-4 DVD/CD]
+|06fe5000| Searching bootorder for: /pci@i0cf8/*@1,1/drive@1/disk@0
+|06fe5000| Searching bios-geometry for: /pci@i0cf8/*@1,1/drive@1/disk@0
+|06fe5000| scsi_is_ready (drive=0x000f4090)
+|06fe5000| Device reports MEDIUM NOT PRESENT - 2 tries left
+|06fe5000| Device reports MEDIUM NOT PRESENT - 1 tries left
+|06fe5000| Device reports MEDIUM NOT PRESENT - 0 tries left
+|06fe5000| phys_alloc zone=0x06fffe58 size=24 align=10 ret=6fe7b40 (detail=0x06fe7b10)
+|06fe5000| Registering bootable: DVD/CD [ata1-0: QEMU DVD-ROM ATAPI-4 DVD/CD] (type:3 prio:103 data:f4090)
+|06fe5000| ata_detect resetresult=0000
+|06fe5000| powerup iobase=170 st=50
+|06fe5000| powerup iobase=170 st=0
+|06fe5000| ata_detect ata1-1: sc=55 sn=aa dh=b0
+|06fe5000| send_cmd : DRQ not set (status 00)
+\06fe5000/ End thread
+phys_free 6fe5000 (detail=0x06fe7be0)
+All threads complete.
+Scan for option roms
+Attempting to init PCI bdf 00:00.0 (vd 8086:1237)
+Attempting to map option rom on dev 00:00.0
+Option rom sizing returned 0 0
+Attempting to init PCI bdf 00:01.0 (vd 8086:7000)
+Attempting to map option rom on dev 00:01.0
+Option rom sizing returned 0 0
+Attempting to init PCI bdf 00:01.1 (vd 8086:7010)
+Attempting to map option rom on dev 00:01.1
+Option rom sizing returned 0 0
+Attempting to init PCI bdf 00:01.3 (vd 8086:7113)
+Attempting to map option rom on dev 00:01.3
+Option rom sizing returned 0 0
+Attempting to init PCI bdf 00:03.0 (vd 8086:100e)
+Attempting to map option rom on dev 00:03.0
+Option rom sizing returned feb80000 fffc0000
+Inspecting possible rom at 0xfeb80000 (vd=8086:100e bdf=00:03.0)
+Copying option rom (size 68608) from 0xfeb80000 to 0x000ca000
+Checking rom 0x000ca000 (sig aa55 size 134)
+Running option rom at ca00:0003
+pmm call arg1=1
+pmm01: handle=18ae1000
+pmm call arg1=0
+pmm00: length=1100 handle=18ae1000 flags=2
+phys_alloc zone=0x06fffe58 size=69632 align=10 ret=6fd0210 (detail=0x06fe7be0)
+pmm call arg1=1
+pmm01: handle=18ae200a
+pmm call arg1=0
+pmm00: length=a000 handle=18ae200a flags=2
+phys_alloc zone=0x06fffe58 size=655360 align=10 ret=6f30210 (detail=0x06fe7ae0)
+Checking rom 0x000cb000 (sig aa55 size 18)
+Checking rom 0x000ca000 (sig aa55 size 7)
+Searching bootorder for: /pci@i0cf8/*@3
+phys_alloc zone=0x06fffe58 size=24 align=10 ret=6fe7ac0 (detail=0x06fe7a90)
+Registering bootable: iPXE (PCI 00:03.0) (type:128 prio:9999 data:ca000385)
+Checking rom 0x000cb000 (sig aa55 size 18)
+Searching bootorder for: /rom@genroms/kvmvapic.bin
+phys_alloc zone=0x06fffe58 size=24 align=10 ret=6fe7a70 (detail=0x06fe7a40)
+Registering bootable: Legacy option rom (type:129 prio:101 data:cb000003)
+Searching bootorder for: HALT
+Running option rom at cb00:0003
+Mapping floppy drive 0x000f4110
+Mapping cd drive 0x000f4090
+phys_alloc zone=0x06fffe68 size=2048 align=10 ret=e4cc0 (detail=0x06fe7a10)
+phys_alloc zone=0x06fffe60 size=44 align=10 ret=f4060 (detail=0x06fe79e0)
+finalize PMM
+malloc finalize
+Add to e820 map: 0009fc00 00000400 2
+Space available for UMB: cd800-e4800, f3c80-f4060
+Add to e820 map: 07000000 00fe0000 1
+Returned 16646144 bytes of ZoneHigh
+e820 map has 7 items:
+  0: 0000000000000000 - 000000000009fc00 = 1 RAM
+  1: 000000000009fc00 - 00000000000a0000 = 2 RESERVED
+  2: 00000000000f0000 - 0000000000100000 = 2 RESERVED
+  3: 0000000000100000 - 0000000007fe0000 = 1 RAM
+  4: 0000000007fe0000 - 0000000008000000 = 2 RESERVED
+  5: 00000000fffc0000 - 0000000100000000 = 2 RESERVED
+  6: 000000fd00000000 - 0000010000000000 = 2 RESERVED
+locking shadow ram
+Jump to int19
+enter handle_19:
+  NULL
+Booting from Hard Disk...
+invalid handle_legacy_disk:729:
+   a=00000201  b=00000000  c=00000001  d=00000080 ds=0000 es=07c0 ss=d600
+  si=00000000 di=00000000 bp=00000000 sp=0000ff4e cs=f000 ip=fa6d  f=0202
+Boot failed: could not read the boot disk
+
+enter handle_18:
+  NULL
+Booting from Floppy...
+Floppy_drive_recal 0
+Floppy_enable_controller
+Floppy_media_sense on drive 0 found rate 0
+floppy error: 40 00 00 00 00 01 02
+invalid basic_access:158:
+   a=00000200  b=00000000  c=00000001  d=00000000 ds=0000 es=07c0 ss=d600
+  si=00000000 di=00000000 bp=00000000 sp=0000ff4e cs=f000 ip=fa6d  f=0202
+Boot failed: could not read the boot disk
+
+enter handle_18:
+  NULL
+Booting from DVD/CD...
+scsi_is_ready (drive=0x000f4090)
+Device reports MEDIUM NOT PRESENT - 2 tries left
+Device reports MEDIUM NOT PRESENT - 1 tries left
+Device reports MEDIUM NOT PRESENT - 0 tries left
+scsi_is_ready returned -1
+Boot failed: Could not read from CDROM (code 0003)
+enter handle_18:
+  NULL
+Booting from ROM...
+Booting from ca00:0385
+unimplemented handle_1aXX:258:
+   a=0000564e  b=00000770  c=f815be5c  d=9c6c0188 ds=9cf0 es=9c6c ss=d600
+  si=00000000 di=0001db48 bp=0009eab8 sp=0000ff4e cs=9c6c ip=0144  f=0006
+enter handle_18:
+  NULL
+No bootable device.
