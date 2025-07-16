@@ -174,4 +174,21 @@ Over.
 
 
 
+-------------------------------------------------------------------------
+Tips:
+1， qemu编译失败，提示“fatal: this operation must be run in a work tree”
+优先执行：
+meson subprojects download
+或者执行：
+rm -rf subprojects/keycodemapdb
+git clone https://gitlab.com/qemu-project/keycodemapdb.git subprojects/keycodemapdb
+cd subprojects/keycodemapdb
+git checkout f5772a62ec52591ff6870b7e8ef32482371f22c6
+
+
+
+
+
+
+
 
