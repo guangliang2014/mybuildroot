@@ -1,0 +1,10 @@
+
+Device:
+00:0e.0 Non-Volatile memory controller: InnoTek Systemberatung GmbH Device 4e56
+
+modprobe vfio-pci
+echo 0000:00:0e.0 > /sys/bus/pci/drivers/nvme/unbind 
+   or    echo 0000:00:0e.0 | sudo tee /sys/bus/pci/drivers/nvme/unbind
+echo 2646 5027 > /sys/bus/pci/drivers/vfio-pci/new_id
+   or    echo 80ee 4e56 | sudo tee /sys/bus/pci/drivers/vfio-pci/new_id
+sudo chmod 666 /dev/vfio/*  

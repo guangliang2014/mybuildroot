@@ -1,0 +1,20 @@
+
+-net nic,model=virtio \
+-net user \
+-monitor telnet:127.0.0.1:55555,server,nowait \
+-net nic：创建一个虚拟网卡（类似 eth0）。
+-net user：将该网卡连接到一个“用户模式”网络，自动实现 NAT。
+
+
+
+
+ ../qemu/qemu-9.2.0/configure --target-list=x86_64-softmmu --enable-slirp
+
+ -nic user: （功能同上）
+Guest 可以访问主机网络和互联网（如访问网页、下载包）。
+Guest 不能被主机或其他设备主动访问（除非做端口映射）。
+不需要 root 权限和复杂配置，适合开发调试。
+可配合端口转发，如 -nic user,hostfwd=tcp::2222-:22（主机2222端口转发到Guest 22端口）。
+
+
+-nic user,hostfwd=tcp::2222-:22
