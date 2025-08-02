@@ -1,0 +1,1 @@
+source "$BR2_EXTERNAL_MINISYS_PATH/package/revere-demo/Config.in"
