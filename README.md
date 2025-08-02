@@ -185,6 +185,9 @@ git clone https://gitlab.com/qemu-project/keycodemapdb.git subprojects/keycodema
 cd subprojects/keycodemapdb
 git checkout f5772a62ec52591ff6870b7e8ef32482371f22c6
 
+2, 多用户环境下ccache冲突问题解决办法：
+export CCACHE_DIR="$HOME/.ccache_$USER"
+
 
 
 
