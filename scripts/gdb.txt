@@ -1,0 +1,31 @@
+1,kernel
+ https://www.kernel.org/doc/html/v6.3/dev-tools/gdb-kernel-debugging.html
+ /home/ut/.config/gdb/gdbinit
+   内容：
+   add-auto-load-safe-path /home/ut/mybuildroot/output-ext/build/linux-custom/scripts/gdb/vmlinux-gdb.py
+   set auto-load safe-path /
+
+CONFIG_GDB_SCRIPTS enabled, but leave CONFIG_DEBUG_INFO_REDUCED off
+CONFIG_RANDOMIZE_BASE disabled
+
+kernel command line: " nokaslr "
+
+cd linux-build
+make scripts_gdb
+gdb vmlinux
+target remote :1234
+lx-symbols
+
+help: apropos lx
+
+ 
+
+2,app
+ qemu, host_forward gdb port 1122
+ gdbserver app
+
+ gdb app
+ target remote :1122
+ ...
+
+
