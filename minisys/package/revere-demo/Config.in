@@ -1,0 +1,5 @@
+config BR2_PACKAGE_REVEREDEMO
+	bool "demo for vfio"
+	help
+	  Add support to STM32MP1 Firmware examples for the CM4 of the DKx.
+	  Install the examples to the /usr/lib/Cube-M4-examples folder.
