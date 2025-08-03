@@ -82,8 +82,8 @@ case "${COMMAND}" in
         ${BASE_CMD} all
         ;;
     linux-rebuild)
-        echo ${BASE_CMD} linux-dirclean linux-rebuild
-        ${BASE_CMD} linux-dirclean linux-rebuild
+        echo ${BASE_CMD} linux-rebuild
+        ${BASE_CMD} linux-rebuild
         ;;
     qemu-rebuild)
         echo ${BASE_CMD} qemu-dirclean qemu-rebuild
@@ -99,7 +99,7 @@ case "${COMMAND}" in
         ;;
     linux-savedefconfig)
         echo ${BASE_CMD} linux-savedefconfig
-        ${BASE_CMD} savedefconfig
+        ${BASE_CMD} linux-savedefconfig
         ;;
     toolchain)
         echo ${BASE_CMD} toolchain
