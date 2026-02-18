@@ -24,7 +24,7 @@ show_help() {
     echo "  help                  - Show Buildroot help"
     echo ""
     echo "Examples:"
-    echo "  $0 minisys setup minisys my_qemu_x86_64_defconfig"
+    echo "  $0 minisys setup minisys_qemu_x86_64_defconfig"
     echo "  $0 minisys all"
 }
 
