@@ -38,6 +38,7 @@ fi
 EXTERNAL_ARG="../../$1"
 COMMAND="$2"
 DEFCONFIG="$3"
+EXTRA_ARGS="${@:3}"
 
 # 检查EXTERNAL_ARG目录是否存在
 if [ ! -d "$1" ]; then
@@ -113,8 +114,9 @@ case "${COMMAND}" in
         ${BASE_CMD} help
         ;;
     *)
-        echo "Error: Unknown command '${COMMAND}'"
-        show_help
-        exit 1
+        # Unknown command: pass through to make so targets like
+        # package/edu-test or package/edu-test/rebuild work.
+        echo ${BASE_CMD} BR2_EXTERNAL=${EXTERNAL_ARG} ${COMMAND} ${EXTRA_ARGS}
+        ${BASE_CMD} BR2_EXTERNAL=${EXTERNAL_ARG} ${COMMAND} ${EXTRA_ARGS}
         ;;
 esac
