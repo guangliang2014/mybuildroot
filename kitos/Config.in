@@ -1,0 +1,6 @@
+config BR2_EXTERNAL_KITOS
+    bool "Enable Kitos external"
+    help
+      Enable the Kitos external tree.
+
+source "$BR2_EXTERNAL_KITOS_PATH/package/edu-test/Config.in"

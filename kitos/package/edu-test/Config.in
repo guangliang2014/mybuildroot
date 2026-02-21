@@ -1,0 +1,7 @@
+config BR2_PACKAGE_EDU_TEST
+	bool "edu-test: install EDU test program into rootfs"
+	depends on BR2_TOOLCHAIN_BUILDROOT_C99
+	help
+	  Small user-space test program for the EDU device. When enabled,
+	  the test program will be built and installed to /usr/bin in the
+	  target root filesystem.
