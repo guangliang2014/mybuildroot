@@ -1,28 +1,3 @@
-# Brief
-
-Date@2025-8-2
-
-Update@2026-1-21
-
-## Summary
-This git repo save my minisys and fullsys buildroot build environment.
-  minisys has a small rootfs, about 60MB;
-  fullsys has a full rootfs, qemu, sshd and so on, about 600MB.
-
-Add two board: 1) pcie: for create a full pcie hw platform, include iommu device, custom pcie/nvme device, test device, and full 
-linux/rootfs that intergate apt and little qemu/os for test.
-   2) little_kit: the little qemu/os to included by pcie. We need build little_kit first, then build pcie.
-
-And, we can add custom code into linux, qemu, busybox and buildroot.
-
-
-## 该仓库的创建:
-1, git submodule
-   <code>git submodule add https://github.com/guangliang2014/cbuildroot.git buildroot </code> 
-   <code>git submodule add https://github.com/guangliang2014/clinux.git linux </code> 
-   <code>git submodule add https://github.com/guangliang2014/cqemu.git qemu </code> 
-   <code>git submodule add https://github.com/guangliang2014/cbusybox.git busybox </code> 
-
    # Brief
 
    _Date: 2025-08-02_
