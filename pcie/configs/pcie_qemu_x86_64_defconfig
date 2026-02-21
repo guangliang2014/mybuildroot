@@ -90,3 +90,6 @@ BR2_PACKAGE_HOST_QEMU=y
 BR2_PACKAGE_HOST_QEMU_SYSTEM_MODE=y
 
 BR2_PACKAGE_EDU_TEST=y
+
+# rootfs overlay from external
+BR2_ROOTFS_OVERLAY="$(BR2_EXTERNAL_PCIE_PATH)/board/board_ext/rootfs-overlay"

@@ -14,8 +14,9 @@
    Two boards are added:
 
    1. `pcie` — creates a full PCIe hardware platform, includes IOMMU device, custom PCIe/NVMe device, test device, and a full
-      Linux/rootfs that integrates apt and a small QEMU/OS for testing.
-   2. `little_kit` — a smaller QEMU/OS included by `pcie`. Build `little_kit` first, then `pcie`.
+      Linux/rootfs that integrates apt, qemu and a small OS/Rootfs for testing.
+      The one platform for all tests.
+   2. `kitos` — a smaller OS/Rootfs that can been included in `pcie`. Build `kitos` first, then `pcie`.
 
    You can add custom code into `linux`, `qemu`, `busybox` and Buildroot.
 
