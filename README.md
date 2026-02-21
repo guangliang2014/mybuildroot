@@ -2,24 +2,31 @@
 
 Date@2025-8-2
 
+Update@2026-1-21
+
 ## Summary
 This git repo save my minisys and fullsys buildroot build environment.
   minisys has a small rootfs, about 60MB;
   fullsys has a full rootfs, qemu, sshd and so on, about 600MB.
 
+Add two board: 1) pcie: for create a full pcie hw platform, include iommu device, custom pcie/nvme device, test device, and full 
+linux/rootfs that intergate apt and little qemu/os for test.
+   2) little_kit: the little qemu/os to included by pcie. We need build little_kit first, then build pcie.
+
 And, we can add custom code into linux, qemu, busybox and buildroot.
 
 
-## How setup this repo:
+## 该仓库的创建:
 1, git submodule
    <code>git submodule add https://github.com/guangliang2014/cbuildroot.git buildroot </code> 
    <code>git submodule add https://github.com/guangliang2014/clinux.git linux </code> 
    <code>git submodule add https://github.com/guangliang2014/cqemu.git qemu </code> 
    <code>git submodule add https://github.com/guangliang2014/cbusybox.git busybox </code> 
 
-   build steps:
+   原始构建步骤：
    make O=../../output -C buildroot/buildroot-2025.02 qemu_x86_64_defconfig
    make -C buildroot/buildroot-2025.02 O=../../output all 
+
 2, DL and CCache:
    <code>BR2_DL_DIR="\$(TOPDIR)/../../dl"</code> 
    <code>BR2_CCACHE_DIR="\$(TOPDIR)/../../ccache"  and BR2_CCACHE=y </code> 
@@ -38,7 +45,7 @@ And, we can add custom code into linux, qemu, busybox and buildroot.
    3) packages using directly by buildroot framework
 
 
-## How to build  
+## 常用构建命令 
 1, Setup  
    make O=../../output-ext -C buildroot/buildroot-2025.02 BR2_EXTERNAL=../../external my_qemu_x86_64_defconfig  
 2, Build 
@@ -54,7 +61,7 @@ And, we can add custom code into linux, qemu, busybox and buildroot.
 6, SDK
    make O=../../output-ext -C buildroot/buildroot-2025.02  sdk  
 
-#### Linux Init System  
+#### 关于Linux的Init配置  
    Using Busybox(default)  
       Notice:  
       The BusyBox init program will read the /etc/inittab file at boot to know what to do.   
@@ -70,21 +77,21 @@ And, we can add custom code into linux, qemu, busybox and buildroot.
    kernel open CONFIG_UEVENT_HELPER for /proc/sys/kernel/hotplug  
 
   
-#### Linux Config System
+#### 内核配置
    BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="\$(BR2_EXTERNAL_MY_PATH)/board/ext_board/linux.config"  
 
-#### Initrd & initramfs
+#### 根文件系统Initrd & initramfs
 
-   6.1 Initrd = Init ram disk   
+   1 Initrd = Init ram disk   
       bootloader会把initrd文件读到内存中，然后把initrd文件在内存中的起始地址和大小传递给内核  
       //linuxrc -->    cpio /init; image /initrc  
       //mem=32M console=ttySAC0 root=/dev/ram initrd=0xc1000000,0x00600000 ramdisk_size=8192 rw  
 
-   6.2 initramfs
+   2 initramfs
       cpio格式的文件被打包到kernel文件中  
       __initramfs_start和__initramfs_end  
 
-   6.3 (default)noinitrd方式:
+   3 (default)noinitrd方式:
       Kernel  
       [N]Initial RAM filesystem and RAM disk (initramfs/initrd) support  
 
@@ -96,14 +103,14 @@ And, we can add custom code into linux, qemu, busybox and buildroot.
 
       /linuxrc --> busybox ( /etc/inittab )  or systemd  
 
-#### Peripherals
+#### Qemu的外设配置
    DISK_ARGS="-drive file=nvme.img,if=none,id=D22 -device nvme,drive=D22,serial=1234" 
 
-#### Tools  
+#### buildroot的工具配置  
    busybox lspci --> pciutils  
    
 
-#### VFIO support
+#### VFIO的支持
    *host*
     01:00.0 0108: 2646:5027 (rev 01) (prog-if 02 [NVM Express])  
     echo 0000:01:00.0 > /sys/bus/pci/drivers/nvme/unbind  
@@ -124,9 +131,9 @@ And, we can add custom code into linux, qemu, busybox and buildroot.
    
    临时修改权限：sudo chmod 666 /dev/vfio/*  
 
-#### GDB VSCode  
+#### 集成GDB VSCode  
 
-   1) launch.json   for gdb host app
+   1） launch.json   for gdb host app
 
       {
       "version": "0.2.0",
@@ -163,18 +170,21 @@ And, we can add custom code into linux, qemu, busybox and buildroot.
     ]
    }</code>
 
-   2, for linux kernel ??
+   2）, for linux kernel ??
 
-   3, for guest app ??
+   3）, for guest app ??
 
-   4, for seabios ??
+   4）, for seabios ??
 
-#### b\.sh
-   fullsys setup xxxx.config
-   fullsys all
+#### 日志系统
+   1） Linux kernel log: dmesg
+   2） Qemu log: -d guest_errors,unimp,pcall -D qemu.log
+   3） Linux app log: printf, syslog, dmesg, journalctl (systemd)
+   4） Qemu monitor log: Ctrl+Alt+2, info qtree, info pci, info usb, info network, info block, info cpus, info registers, info mem, info status, info version, info gic, info s390x, info
+      info qom-tree, info qom-list, info qom-props, info qom-children, info qom-types, info qom-type <type>, info qom-type-properties <type>, info qom-type-children <type>, info qom-type-desc <type>, info qom-type-desc-full <type>, info qom-type-desc-xml <type>, info qom-type-desc-json <type>, info qom-type-desc-yaml <type>, info qom-type-desc-dot <type>, info qom-type-desc-html <type>, info qom-type-desc-md <type>, info qom-type-desc-txt <type>, info qom-type-desc-csv <type>, info qom-type-desc-tsv <type>, info qom-type-desc-xmltree <type>, info qom-type-desc-jsontree <type>, info qom-type-desc-yamltree <type>, info qom-type-desc-dottree <type>, info qom-type-desc-htmltree <type>, info qom-type-desc-mdtree <type>, info qom-type-desc-txttree <type>, info qom-type-desc-csvtree <type>, info qom-type-desc-tsvtree <type>
 
-#### Others
-Tips:
+
+## Tips:
 1， qemu编译失败，提示“fatal: this operation must be run in a work tree”
 优先执行：
 meson subprojects download
@@ -193,3 +203,15 @@ qemu需要从网站上下载压缩包，不能使用git clone。否则会有编�
   Download bilge-impl-0.2-rs...
   -> Diff file "subprojects/packagefiles/bilge-impl-1.63.0.patch" does not exist
   WARNING: Please check logs above as command failed in some subprojects which could have been left in conflict state: bilge-impl-0.2-rs
+
+
+
+## 一键构建命令 b\.sh
+   请参考b.sh的帮助文档
+
+
+## 其他
+1，扩展一个运行Threadx的板级支持包，包含一个定制的linux内核和rootfs，集成qemu模拟器，提供一个完整的开发环境。
+2，扩展一个运行RSICV+Linux的板级支持包，包含一个定制的linux内核和rootfs，集成qemu模拟器，提供一个完整的开发环境。
+
+
