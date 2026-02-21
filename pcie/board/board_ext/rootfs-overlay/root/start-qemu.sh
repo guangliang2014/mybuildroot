@@ -1,0 +1,35 @@
+#!/bin/sh
+
+BINARIES_DIR="${0%/*}/"
+# shellcheck disable=SC2164
+cd "${BINARIES_DIR}"
+
+mode_serial=false
+mode_sys_qemu=false
+while [ "$1" ]; do
+    case "$1" in
+    --serial-only|serial-only) mode_serial=true; shift;;
+    --use-system-qemu) mode_sys_qemu=true; shift;;
+    --) shift; break;;
+    *) echo "unknown option: $1" >&2; exit 1;;
+    esac
+done
+
+if ${mode_serial}; then
+    EXTRA_ARGS='-nographic'
+else
+    EXTRA_ARGS='-serial stdio'
+fi
+
+if ! ${mode_sys_qemu}; then
+    export PATH="/home/code/pcie/mybuildroot/output-kitos/host/bin:${PATH}"
+fi
+
+# Add EDU PCI device (myedu) to the guest. Set USE_MYEDU=false to disable.
+USE_MYEDU=${USE_MYEDU:-true}
+EDU_DEV_ARG=""
+if [ "${USE_MYEDU}" = "true" ]; then
+    EDU_DEV_ARG='-device myedu'
+fi
+
+exec qemu-system-x86_64 -M pc -kernel bzImage -drive file=rootfs.ext2,if=virtio,format=raw -append "rootwait root=/dev/vda console=tty1 console=ttyS0 loglevel=3 quiet"  -net nic,model=virtio -net user  ${EDU_DEV_ARG} ${EXTRA_ARGS} "$@"
