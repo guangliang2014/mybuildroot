@@ -1,10 +1,12 @@
-   # Brief
+   # My Buildroot Environments
+   
+   #### History
 
    _Date: 2025-08-02_
 
    _Update: 2026-01-21_
 
-   ## Summary
+   ## 概述
 
    This git repo stores my minisys and fullsys Buildroot build environments.
 
@@ -46,7 +48,8 @@
    BR2_CCACHE=y
    ```
 
-   Notes: `export CCACHE_DIR="/home/code/.ccache"` in `.bashrc` will override Buildroot config. `BR2_CCACHE_USE_BASEDIR=y` lets different outputs share cache.
+   Notes: `export CCACHE_DIR="/home/code/.ccache"` in `.bashrc` will override Buildroot config. 
+          `BR2_CCACHE_USE_BASEDIR=y` lets different outputs share cache.
 
    3. 创建 BR2_EXTERNAL
 
@@ -98,19 +101,36 @@
    make O=../../output-ext -C buildroot/buildroot-2025.02 sdk
    ```
 
+   ## 系统配置
+
    ### 关于 Linux 的 init 配置
 
-   使用 BusyBox（默认）
+   使用 BusyBox（默认），以及startup script。Buildroot預設的inittab是存在路徑『buildroot/system/skeleton/etc/inittab』，預設的inittab主要的工作就是啟動shell script去一一執行『/etc/init.d/rcS』底下所有定義的服務，和啟動getty程式
 
    > BusyBox 的 init 程序会读取 `/etc/inittab`，默认的 `inittab` 存放在 `package/busybox/inittab`。默认会挂载必要的文件系统、运行 `/etc/init.d/rcS` 并启动 `getty` 提供登录提示。
 
-   `/dev` 系统
+   ### 关于 Linux 的设备管理
 
-   默认使用 `udev`（通常为 "devtmpfs only"）+ `devtmpfs`。
+     内核使用devtmpfs动态创建设备节点，用户空间使用eudev进一步对设备节点的增加和移除进行管理和响应。
 
-   内核可打开 `CONFIG_UEVENT_HELPER` 来支持 `/proc/sys/kernel/hotplug`。
+   > 默认使用 `udev`（通常为 "devtmpfs only"）+ `devtmpfs`。
 
-   #### 内核配置
+   > 内核可打开 `CONFIG_UEVENT_HELPER` 来支持 `/proc/sys/kernel/hotplug`。
+
+   ### 根文件系统（Initrd & initramfs）
+
+   - **Initrd**：启动加载器将 initrd 读入内存并传递地址/大小给内核；常见用法为通过 `initrd` 参数加载临时根文件系统。
+   - **initramfs**：cpio 格式的文件打包到内核映像中（由 `__initramfs_start` 与 `__initramfs_end` 标识）。
+   - **no-initramfs**：内核直接挂载根设备，例如 `root=/dev/vda`。 Qemu默认使用的是这种方式。
+
+     默认方式，no-initramfs：内核直接挂载根设备，例如 `root=/dev/vda`。
+
+   ### Bootloader配置
+   
+    - **OVFM**：适用于 x86_64 平台，使用 OVMF（UEFI 固件）作为引导程序。
+    - **GRUB**：适用于 x86_64 平台，使用 GRUB 作为引导程序。
+
+   ### 内核配置
 
    在 Buildroot 中指定自定义内核配置文件：
 
@@ -118,20 +138,13 @@
    BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="$(BR2_EXTERNAL_MY_PATH)/board/ext_board/linux.config"
    ```
 
-   ## 根文件系统（Initrd & initramfs）
-
-   - **Initrd**：启动加载器将 initrd 读入内存并传递地址/大小给内核；常见用法为通过 `initrd` 参数加载临时根文件系统。
-   - **initramfs**：cpio 格式的文件打包到内核映像中（由 `__initramfs_start` 与 `__initramfs_end` 标识）。
-
-   默认方式无 initrd：内核直接挂载根设备，例如 `root=/dev/vda`。
-
-   ## QEMU 外设配置示例
+   ### QEMU 外设配置示例
 
    ```bash
    DISK_ARGS="-drive file=nvme.img,if=none,id=D22 -device nvme,drive=D22,serial=1234"
    ```
 
-   ## Buildroot 工具配置
+   ### Buildroot 工具配置
 
    BusyBox 的 `lspci` 需要 `pciutils`。
 
@@ -165,9 +178,9 @@
    sudo chmod 666 /dev/vfio/*
    ```
 
-   ## 在 VSCode 中集成 GDB
+   ## GDB系统
 
-   示例 `launch.json`（用于调试 host qemu）：
+   示例 `launch.json`（用于调试 host qemu），在 VSCode 中集成 GDB：
 
    ```json
    {
@@ -246,7 +259,7 @@
 
    请参考 `b.sh` 的帮助文档。
 
-   ## 其他扩展想法
+   ## 其他扩展
 
    1. 扩展一个运行 ThreadX 的 BSP，包含定制内核和 rootfs，集成 QEMU 模拟器，提供完整开发环境。
    2. 扩展一个运行 RISC-V + Linux 的 BSP，包含定制内核和 rootfs，集成 QEMU 模拟器，提供完整开发环境。
