@@ -32,4 +32,8 @@ if [ "${USE_MYEDU}" = "true" ]; then
     EDU_DEV_ARG='-device myedu'
 fi
 
-exec @QEMU_CMD_LINE@ ${EDU_DEV_ARG} ${EXTRA_ARGS} "$@"
+
+# Configure guest memory size (512 MiB).
+MEM_SIZE='-m 512M'
+
+exec @QEMU_CMD_LINE@ ${MEM_SIZE} ${EDU_DEV_ARG} ${EXTRA_ARGS} "$@"

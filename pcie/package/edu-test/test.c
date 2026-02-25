@@ -34,8 +34,7 @@ int edu_calculate_factorial(int val){
         return reg;
 }
 
-int
-edu_get_device_id(void){
+int edu_get_device_id(void){
         return 1;
 }
 
