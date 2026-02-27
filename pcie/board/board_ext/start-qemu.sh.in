@@ -33,7 +33,39 @@ if [ "${USE_MYEDU}" = "true" ]; then
 fi
 
 
+# PCIe topology: 3 root ports (rp1,rp2,rp3)
+# - rp1: has an NVMe endpoint
+# - rp2: has a downstream pci-bridge (switch)
+# - rp3: empty
+# NVME image placeholder: set NVME_IMG env or replace @NVME_IMG@ in build.
+NVME_IMG=${NVME_IMG:-nvme.img}
+
+# Ensure NVMe image file exists (create empty file if missing)
+if [ ! -e "${NVME_IMG}" ]; then
+        touch "${NVME_IMG}"
+        fallocate -l 1G "${NVME_IMG}"
+fi
+
+PCIE_TOPO_ARGS="-device pcie-root-port,id=rp1,bus=pcie.0,chassis=1 \
+    -drive file=${NVME_IMG},if=none,id=d0 \
+    -device nvme,drive=d0,serial=nvme-1,bus=rp1 \
+    -device pcie-root-port,id=rp2,bus=pcie.0,chassis=2 \
+    -device x3130-upstream,id=up0,bus=rp2 \
+    -device xio3130-downstream,id=dn0,bus=up0,chassis=4 \
+    -device pcie-root-port,id=rp3,bus=pcie.0,chassis=3"
+
+
+# IOMMU support for platform (add an intel-iommu device)
+# Set USE_IOMMU=false to disable
+USE_IOMMU=${USE_IOMMU:-true}
+IOMMU_ARGS=""
+if [ "${USE_IOMMU}" = "true" ]; then
+    IOMMU_ARGS='-device intel-iommu,intremap=on'
+fi
+
+
 # Configure guest memory size (512 MiB).
 MEM_SIZE='-m 512M'
+echo @QEMU_CMD_LINE@ ${MEM_SIZE} ${EDU_DEV_ARG} ${IOMMU_ARGS} ${PCIE_TOPO_ARGS} ${EXTRA_ARGS} "$@"
 
-exec @QEMU_CMD_LINE@ ${MEM_SIZE} ${EDU_DEV_ARG} ${EXTRA_ARGS} "$@"
+exec @QEMU_CMD_LINE@ ${MEM_SIZE} ${EDU_DEV_ARG} ${IOMMU_ARGS} ${PCIE_TOPO_ARGS} ${EXTRA_ARGS} "$@"

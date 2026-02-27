@@ -48,4 +48,7 @@ if ${mode_net} ; then
     echo "Network enabled for this run" >&2
 fi
 
-exec qemu-system-x86_64 -M pc -kernel bzImage -drive file=rootfs.ext2,if=virtio,format=raw -append "rootwait root=/dev/vda console=tty1 console=ttyS0 loglevel=3 quiet" ${NET_ARGS} ${EDU_DEV_ARG} ${EXTRA_ARGS} "$@"
+# normalize
+BDF="0000:01:00.0"
+
+exec qemu-system-x86_64 -M pc -kernel bzImage -drive file=rootfs.ext2,if=virtio,format=raw -append "rootwait root=/dev/vda console=tty1 console=ttyS0 loglevel=3 quiet" ${NET_ARGS} -device vfio-pci,host=$BDF,id=hostdev0 ${EDU_DEV_ARG} ${EXTRA_ARGS} "$@"
