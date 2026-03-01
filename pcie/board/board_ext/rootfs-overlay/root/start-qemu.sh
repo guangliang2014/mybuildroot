@@ -6,7 +6,7 @@ cd "${BINARIES_DIR}"
 
 mode_serial=false
 mode_sys_qemu=false
-mode_net=false
+mode_net=true
 while [ "$1" ]; do
     case "$1" in
     --serial-only|serial-only) mode_serial=true; shift;;

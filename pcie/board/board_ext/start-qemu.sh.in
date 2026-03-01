@@ -6,10 +6,13 @@ cd "${BINARIES_DIR}"
 
 mode_serial=false
 mode_sys_qemu=false
+kernel_gdb=false
 while [ "$1" ]; do
     case "$1" in
     --serial-only|serial-only) mode_serial=true; shift;;
     --use-system-qemu) mode_sys_qemu=true; shift;;
+    -kernel_gdb) kernel_gdb=true; shift;;
+    -qemu_gdb) qemu_gdb=true; shift;;
     --) shift; break;;
     *) echo "unknown option: $1" >&2; exit 1;;
     esac
@@ -69,7 +72,7 @@ fi
 USE_QEMU_TRACE=${USE_QEMU_TRACE:-true}
 # When QEMU_LOG_DATETIME=true, use a date+time filename (expanded by shell)
 # otherwise leave the default pattern which can contain %d (replaced by QEMU PID)
-QEMU_LOG_DATETIME=${QEMU_LOG_DATETIME:-false}
+QEMU_LOG_DATETIME=${QEMU_LOG_DATETIME:-true}
 TRACE_ARGS=""
 if [ "${USE_QEMU_TRACE}" = "true" ]; then
     if [ "${QEMU_LOG_DATETIME}" = "true" ]; then
@@ -80,9 +83,22 @@ if [ "${USE_QEMU_TRACE}" = "true" ]; then
     fi
 fi
 
+# When requested, enable gdb stub (do not start CPU, wait for gdb)
+GDB_ARGS=""
+if [ "${kernel_gdb}" = "true" ]; then
+    GDB_ARGS='-S -s'
+fi
+
+
+# Debug QEMU process itself via gdbserver prefix
+QEMU_GDB_CMD=""
+if [ "${qemu_gdb}" = "true" ]; then
+    QEMU_GDB_CMD='gdb --args '
+fi
+
 
 # Configure guest memory size (512 MiB).
 MEM_SIZE='-m 512M'
-echo @QEMU_CMD_LINE@ ${MEM_SIZE} ${EDU_DEV_ARG} ${IOMMU_ARGS} ${TRACE_ARGS} ${PCIE_TOPO_ARGS} ${EXTRA_ARGS} "$@"
 
-exec @QEMU_CMD_LINE@ ${MEM_SIZE} ${EDU_DEV_ARG} ${IOMMU_ARGS} ${TRACE_ARGS} ${PCIE_TOPO_ARGS} ${EXTRA_ARGS} "$@"
+echo ${QEMU_GDB_CMD} @QEMU_CMD_LINE@ ${MEM_SIZE} ${EDU_DEV_ARG} ${IOMMU_ARGS} ${TRACE_ARGS} ${GDB_ARGS} ${PCIE_TOPO_ARGS} ${EXTRA_ARGS} "$@"
+exec ${QEMU_GDB_CMD} @QEMU_CMD_LINE@  ${MEM_SIZE} ${EDU_DEV_ARG} ${IOMMU_ARGS} ${TRACE_ARGS} ${GDB_ARGS} ${PCIE_TOPO_ARGS} ${EXTRA_ARGS} "$@"
