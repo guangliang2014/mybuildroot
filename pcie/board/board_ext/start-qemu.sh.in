@@ -64,8 +64,25 @@ if [ "${USE_IOMMU}" = "true" ]; then
 fi
 
 
+# QEMU tracing/logging options for host (vfio/pci). Set USE_QEMU_TRACE=true to enable
+# Example args added: -d trace:*vfio*,trace:*pci*  -D qemu_test-%d.log  -msg timestamp=on
+USE_QEMU_TRACE=${USE_QEMU_TRACE:-true}
+# When QEMU_LOG_DATETIME=true, use a date+time filename (expanded by shell)
+# otherwise leave the default pattern which can contain %d (replaced by QEMU PID)
+QEMU_LOG_DATETIME=${QEMU_LOG_DATETIME:-false}
+TRACE_ARGS=""
+if [ "${USE_QEMU_TRACE}" = "true" ]; then
+    if [ "${QEMU_LOG_DATETIME}" = "true" ]; then
+        LOGNAME="qemu_test-$(date +%Y%m%d-%H%M%S).log"
+        TRACE_ARGS="-d trace:*vfio*,trace:*pci* -D ${LOGNAME} -msg timestamp=on"
+    else
+        TRACE_ARGS='-d trace:*vfio*,trace:*pci* -D qemu_test-%d.log -msg timestamp=on'
+    fi
+fi
+
+
 # Configure guest memory size (512 MiB).
 MEM_SIZE='-m 512M'
-echo @QEMU_CMD_LINE@ ${MEM_SIZE} ${EDU_DEV_ARG} ${IOMMU_ARGS} ${PCIE_TOPO_ARGS} ${EXTRA_ARGS} "$@"
+echo @QEMU_CMD_LINE@ ${MEM_SIZE} ${EDU_DEV_ARG} ${IOMMU_ARGS} ${TRACE_ARGS} ${PCIE_TOPO_ARGS} ${EXTRA_ARGS} "$@"
 
-exec @QEMU_CMD_LINE@ ${MEM_SIZE} ${EDU_DEV_ARG} ${IOMMU_ARGS} ${PCIE_TOPO_ARGS} ${EXTRA_ARGS} "$@"
+exec @QEMU_CMD_LINE@ ${MEM_SIZE} ${EDU_DEV_ARG} ${IOMMU_ARGS} ${TRACE_ARGS} ${PCIE_TOPO_ARGS} ${EXTRA_ARGS} "$@"
